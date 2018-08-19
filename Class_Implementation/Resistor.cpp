@@ -16,16 +16,6 @@ void ResistorArray(string line, Resistor** & R, int & curNumRes, int & maxResNum
 	string cmd;
 	lineStream >> cmd;
 	if (cmd == "maxVal") {
-//		if (R != NULL) {
-//			for (int i = 0; i < oldNumRes; i++) {
-//				delete R[i];
-//				R[i] = NULL;
-//			}
-//			delete[] R;
-//			R = NULL;
-//			curNumRes = 0;
-//		}
-		
 		int maxNodeGar;
 		lineStream >> maxNodeGar >> maxResNumber;
 		R = new Resistor*[maxResNumber];
@@ -35,7 +25,7 @@ void ResistorArray(string line, Resistor** & R, int & curNumRes, int & maxResNum
 		double resistance;
 		int endpointNodeIDs[2];
 		lineStream >> name >> resistance >> endpointNodeIDs[0] >> endpointNodeIDs[1];
-		//unlike Node, new each Resistor object when a resistor is inserted
+		// unlike Node, new each Resistor object when a resistor is inserted
 		R[curNumRes] = new Resistor(curNumRes, name, resistance, endpointNodeIDs);
 		curNumRes++;
 		oldNumRes = curNumRes;
@@ -97,11 +87,11 @@ Resistor::~Resistor() {
 
 string Resistor::getName() const{
 	return this->name;
-} // returns the name
+}  // returns the name
 
 double Resistor::getResistance() const {
 	return this->resistance;
-}// returns the resistance
+}  // returns the resistance
 
 void Resistor::setResistance(double resistance_) {
 	resistance = resistance_;

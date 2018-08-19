@@ -19,7 +19,7 @@ void NodeArray(string line, Node** & N, int & maxNodeNumber, int & oldMaxNodeNum
 	if (cmd == "maxVal") {
 		lineStream >> maxNodeNumber;
 		N = new Node*[maxNodeNumber];
-		//new all the nodes needed right in maxVal command
+		// new all the nodes needed right in maxVal command
 		for (int i = 0; i <= maxNodeNumber; i++) {
 			N[i] = new Node;
 		}
@@ -29,7 +29,8 @@ void NodeArray(string line, Node** & N, int & maxNodeNumber, int & oldMaxNodeNum
 		string name;
 		double resistance;
 		int endpointNodeIDs[2];
-		//A sneaky move: create arrays in Node class that store all the info for resistors, so that we don't need to get resistor info from resistor class
+		// A sneaky move: create arrays in Node class that store all the info for resistors,
+		// so that we don't need to get resistor info from resistor class
 		lineStream >> name >> resistance >> endpointNodeIDs[0] >> endpointNodeIDs[1];
 		N[endpointNodeIDs[0]]->addResistorPro(name, resistance, endpointNodeIDs);
 		N[endpointNodeIDs[1]]->addResistorPro(name, resistance, endpointNodeIDs);
@@ -38,7 +39,7 @@ void NodeArray(string line, Node** & N, int & maxNodeNumber, int & oldMaxNodeNum
 		string name;
 		double resistance;
 		lineStream >> name >> resistance;
-		for (int i = 0; i < maxNodeNumber; i++) {//search for every Node and every resistor, find target by name
+		for (int i = 0; i < maxNodeNumber; i++) {  // search for every Node and every resistor, find target by name
 			N[i]->changeResistance(name, resistance);
 		}
 	}
@@ -51,7 +52,7 @@ void NodeArray(string line, Node** & N, int & maxNodeNumber, int & oldMaxNodeNum
 			N[nodeid]->print(nodeid);
 		}
 		else {
-			lineStream.clear();//clear the flag is important
+			lineStream.clear();  // clear the flag is important
 			lineStream >> maybeAll;
 			if (!lineStream.fail() && maybeAll == "all") {
 				for (int j = 0; j <= maxNodeNumber; j++) {
@@ -85,7 +86,7 @@ Node::Node() {
 Node::~Node() {
 }
 
-bool Node::canAddResistor(int rIndex) { //check if the node is full
+bool Node::canAddResistor(int rIndex) {  // check if the node is full
 	if (numRes < MAX_RESISTORS_PER_NODE) return true;
 	else return false;
 }
