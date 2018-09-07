@@ -13,24 +13,23 @@ public:
     // A useful constructor
     TreeNode(DBentry* _entryPtr);
 
-    // the destructor
+    // The destructor
     ~TreeNode();
 
-    // sets the left child of the TreeNode.
+    // Sets the left child of the TreeNode
     void setLeft(TreeNode* newLeft);
 
-    // sets the right child of the TreeNode
+    // Sets the right child of the TreeNode
     void setRight(TreeNode* newRight);
 
-    // gets the left child of the TreeNode.
+    // Gets the left child of the TreeNode
     TreeNode* getLeft() const;
 
-    // gets the right child of the TreeNode
+    // Gets the right child of the TreeNode
     TreeNode* getRight() const;
 
-    // returns a pointer to the DBentry the TreeNode contains. 
+    // Returns a pointer to the DBentry the TreeNode contains
     DBentry* getEntry() const;
 };
 
-#endif 
-
+#endif

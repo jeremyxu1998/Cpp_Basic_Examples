@@ -4,10 +4,9 @@ using namespace std;
 
 #include "DBentry.h"
 
-//Member functions that assist TreeDB to get or change data
+/* Member functions that assist TreeDB to get or change data */
 
 DBentry::DBentry() {
-
 }
 
 DBentry::DBentry(string _name, unsigned int _IPaddress, bool _active) {
@@ -17,7 +16,6 @@ DBentry::DBentry(string _name, unsigned int _IPaddress, bool _active) {
 }
 
 DBentry::~DBentry() {
-
 }
 
 void DBentry::setName(string _name) {
